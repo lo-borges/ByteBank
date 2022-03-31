@@ -10,7 +10,30 @@ namespace _01_ByteBank
     {
         static void Main(string[] args)
         {
-            new ContaCorrente();
+            ContaCorrente primeiraContaCorrente = new ContaCorrente();
+            primeiraContaCorrente.saldo = 200;
+            Console.WriteLine(primeiraContaCorrente.saldo);
+
+            primeiraContaCorrente.saldo += 100;
+            Console.WriteLine(primeiraContaCorrente.saldo);
+
+            ContaCorrente segundaContaCorrente = new ContaCorrente();
+            segundaContaCorrente.saldo = 50;
+
+            Console.WriteLine("A primeira conta tem R$ " + primeiraContaCorrente.saldo);
+            Console.WriteLine("A segunda conta tem R$ " + segundaContaCorrente.saldo);
+
+            primeiraContaCorrente.Depositar(100);
+            Console.WriteLine("A primeira conta tem R$ " + primeiraContaCorrente.saldo);
+
+            primeiraContaCorrente.Transferir(45, segundaContaCorrente);
+            Console.WriteLine("A primeira conta tem R$ " + primeiraContaCorrente.saldo);
+            Console.WriteLine("A segunda conta tem R$ " + segundaContaCorrente.saldo);
+
+            segundaContaCorrente.Sacar(10);
+            Console.WriteLine("A segunda conta tem R$ " + segundaContaCorrente.saldo);
+
+            Console.ReadLine();
         }
     }
 }
